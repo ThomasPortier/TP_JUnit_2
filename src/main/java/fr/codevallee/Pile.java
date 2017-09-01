@@ -3,31 +3,24 @@ package fr.codevallee;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.text.Element;
-
-import java.util.Iterator;
-
 public class Pile {
-	String taille;
+	List<String> listeDeLaPile = new ArrayList<String>();
+	private int taille;
 
-	List<Object> unePile = new ArrayList<Object>();
-
-	public void push(Object Item) {
-		unePile.add(Item);
+	public void push(String Item) {
+		listeDeLaPile.add(Item);
 	}
 
 	public void pop() {
-		//
-		int lastIndex = unePile.size() - 1;
-		unePile.remove(lastIndex);
+		listeDeLaPile.remove(taille-1);
 	}
 
 	public void popAll() {
-		unePile.clear();
+		listeDeLaPile.clear();
 	}
 
-	public Object peek(Object Item) {
-		return unePile.get(unePile.size() - 1);
+	public Object peek() {
+		return listeDeLaPile.get(taille-1);
 	}
 
 	public Pile() {
@@ -35,7 +28,11 @@ public class Pile {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pile(String taille) {
+	public int getTaille() {
+		return taille = listeDeLaPile.size();
+	}
+
+	public Pile(int taille) {
 		// super();
 		this.taille = taille;
 	}
